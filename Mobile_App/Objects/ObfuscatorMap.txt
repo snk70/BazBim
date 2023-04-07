@@ -1,0 +1,25 @@
+This file maps the renamed variables to the original ones.
+v5=inc
+v6=t
+v7=l
+v0=w
+vv1=h
+vv2=widthact
+vv3=heightact
+vv4=pastwidthscreen
+vv5=pastheightscreen
+vv6=getinch
+vv7=setpastscreensizetoinche
+vv0=setpx
+vvv1=setsizeviews
+vvv2=decryption
+vvv3=encryption
+vvv4=lng
+vvv5=httputils2service
+vvv6=main
+vvv7=sizeviewv3
+vvv0=label1
+vvvv1=fsz
+vvvv2=getpastheight
+vvvv3=getpastwidth
+vvvv4=sizemode

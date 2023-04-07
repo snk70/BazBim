@@ -1,0 +1,83 @@
+﻿Version=6.8
+NumberOfModules=7
+Module1=choose_groups
+Module2=log_in_ACT
+Module3=see_groups
+Module4=config_App
+Module5=main_act
+Module6=sec_Class_2
+Module7=sizeviewV3
+Build1=Default,baz.bim
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="5" android:targetSdkVersion="14"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~SetApplicationAttribute(android:theme, "@android:style/Theme.Holo")~\n~SetActivityAttribute(log_in_ACT, android:windowSoftInputMode, adjustPan)~\n~            ~\n~AddManifestText(~\n~<permission~\n~        android:name="baz.bim.permission.C2D_MESSAGE"~\n~        android:protectionLevel="signature" />~\n~<uses-permission android:name="baz.bim.permission.C2D_MESSAGE" />~\n~~\n~~\n~<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>~\n~<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>~\n~)~\n~~\n~'optional permissions~\n~AddManifestText(~\n~<uses-permission android:name="android.permission.READ_PHONE_STATE"/>~\n~<uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>~\n~)~\n~AddApplicationText(~\n~<receiver android:name="co.ronash.pushe.receiver.UpdateReceiver" >~\n~<intent-filter>~\n~    <action android:name="android.intent.action.PACKAGE_REPLACED" />~\n~~\n~    <data~\n~            android:path="baz.bim"~\n~            android:scheme="package" />~\n~</intent-filter>~\n~</receiver>~\n~<receiver~\n~android:name="co.ronash.pushe.receiver.PusheGcmReceiver"~\n~android:exported="true"~\n~android:permission="com.google.android.c2dm.permission.SEND" >~\n~<intent-filter>~\n~    <action android:name="com.google.android.c2dm.intent.RECEIVE" />~\n~~\n~    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />~\n~~\n~    <category android:name="baz.bim" />~\n~</intent-filter>~\n~</receiver>~\n~<service~\n~android:name="co.ronash.pushe.service.GcmService"~\n~android:exported="false" android:priority="999">~\n~<intent-filter>~\n~    <action android:name="com.google.android.c2dm.intent.RECEIVE" />~\n~</intent-filter>~\n~</service>~\n~~\n~<receiver~\n~android:name="co.ronash.pushe.receiver.FallbackGcmNetworkManagerReceiver"~\n~android:exported="true" >~\n~<intent-filter>~\n~    <action android:name="co.ronash.pushe.CHECK_TASKS" />~\n~</intent-filter>~\n~</receiver>~\n~~\n~<service~\n~android:name="co.ronash.pushe.service.FallbackGcmTaskRunner"~\n~android:exported="false" >~\n~<intent-filter>~\n~    <action android:name="co.ronash.pushe.ACTION_TASK_READY" />~\n~</intent-filter>~\n~</service>~\n~<service~\n~android:name="co.ronash.pushe.task.scheduler.gcm.GcmTaskRunner"~\n~android:exported="true"~\n~android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE" >~\n~<intent-filter>~\n~    <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />~\n~</intent-filter>~\n~</service>~\n~<service~\n~android:name="co.ronash.pushe.service.IntentTaskRunner"~\n~android:exported="false" />~\n~<service~\n~android:name="co.ronash.pushe.service.InstanceIDService"~\n~android:exported="false" >~\n~<intent-filter>~\n~    <action android:name="com.google.android.gms.iid.InstanceID" />~\n~</intent-filter>~\n~</service>~\n~<activity~\n~android:name="co.ronash.pushe.activities.PopupDialogActivity"~\n~android:theme="@style/PusheTransparent">~\n~</activity>~\n~~\n~<receiver android:name="co.ronash.pushe.receiver.BootAndScreenReceiver">~\n~<intent-filter>~\n~    <action android:name="android.intent.action.BOOT_COMPLETED"/>~\n~</intent-filter>~\n~</receiver>~\n~<service android:name="co.ronash.pushe.service.ScreenStateService">~\n~<intent-filter>~\n~    <action android:name="co.ronash.pushe.service.ScreenStateService" />~\n~</intent-filter>~\n~</service>~\n~~\n~<activity~\n~android:name="co.ronash.pushe.activities.WebviewActivity">~\n~</activity>~\n~~\n~<receiver android:name="co.ronash.pushe.receiver.ConnectivityReceiver">~\n~<intent-filter>~\n~    <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>~\n~</intent-filter>~\n~</receiver>~\n~~\n~<receiver~\n~android:name="co.ronash.pushe.receiver.AddReceiver"~\n~android:exported="false">~\n~<intent-filter>~\n~    <action android:name="com.evernote.android.job.ADD_JOB_CREATOR"/>~\n~</intent-filter>~\n~</receiver>~\n~~\n~<receiver android:name="co.ronash.pushe.receiver.AppChangeReceiver">~\n~<intent-filter>~\n~    <action android:name="android.intent.action.PACKAGE_INSTALL" />~\n~    <action android:name="android.intent.action.PACKAGE_ADDED" />~\n~    <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />~\n~    <data android:scheme="package"/>~\n~</intent-filter>~\n~</receiver>~\n~~\n~<service~\n~android:name="com.evernote.android.job.v21.PlatformJobService"~\n~android:exported="false"~\n~android:permission="android.permission.BIND_JOB_SERVICE" />~\n~<service~\n~android:name="com.evernote.android.job.v14.PlatformAlarmService"~\n~android:exported="false" />~\n~~\n~<receiver~\n~android:name="com.evernote.android.job.v14.PlatformAlarmReceiver"~\n~android:exported="false" >~\n~<intent-filter>~\n~    <action android:name="com.evernote.android.job.v14.RUN_JOB" />~\n~    <action android:name="net.vrallev.android.job.v14.RUN_JOB" />~\n~</intent-filter>~\n~</receiver>~\n~<receiver~\n~android:name="com.evernote.android.job.JobBootReceiver"~\n~android:exported="false" >~\n~<intent-filter>~\n~    <action android:name="android.intent.action.BOOT_COMPLETED" />~\n~</intent-filter>~\n~</receiver>~\n~<service~\n~android:name="com.evernote.android.job.gcm.PlatformGcmService"~\n~android:exported="true"~\n~android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">~\n~<intent-filter>~\n~    <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>~\n~</intent-filter>~\n~</service>~\n~~\n~<activity~\n~android:name="co.ronash.pushe.activities.RequestAccessDialogActivity"~\n~android:theme="@style/PusheTransparent" >~\n~</activity>~\n~~\n~<service android:name="co.ronash.pushe.service.PusheActivityService"/>~\n~~\n~<provider~\n~    android:name="co.ronash.pushe.provider.PusheProvider"~\n~    android:authorities="baz.bim.co.ronash.pushe.pusheprovider"~\n~    android:exported="false"~\n~    android:enabled="true"~\n~    android:grantUriPermissions="true">~\n~<meta-data~\n~    android:name="android.support.FILE_PROVIDER_PATHS"~\n~    android:resource="@xml/provider_paths" />~\n~</provider>~\n~~\n~    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>~\n~    <meta-data android:name="co.ronash.pushe.token" android:value="PUSHE_872538619011"/>~\n~    <meta-data android:name="co.ronash.pushe.cr" android:value="aHR0cDovLzkwN2IwYjM3ZTViYTQxZDE5Y2ZkZjgzMzM1MWZkMzFkOjFhZjhhY2RlZTQ2ZjQ1MjQ4MjgyZDhhYjhjMTJkZGNhQGNhLnB1c2hlLmlyLzE4NzU1"/>~\n~)~\n~'End of default text.~\n~
+IconFile=
+NumberOfFiles=5
+File1=home_information.bal
+File2=login_page.bal
+File3=preview_on.png
+File4=see_groups.bal
+File5=splash_page.bal
+NumberOfLibraries=5
+Library1=core
+Library2=encryption
+Library3=json
+Library4=httputils2
+Library5=pusheplugin_v1.3.4
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: بازبیم
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: portrait
+	#CanInstallToExternalStorage: False
+#End Region
+#Region  Activity Attributes 
+	#FullScreen: True
+	#IncludeTitle: False
+#End Region
+
+Sub Process_Globals
+
+
+End Sub
+
+Sub Globals
+
+	Private btn_1 As Button
+	Private btn_2 As Button
+	Private btn_3 As Button
+	
+	Dim pushe_notification As Pushe
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+
+	pushe_notification.initialize
+	
+	If config_App.is_first=True Then
+		Activity.LoadLayout("splash_page")
+	#region Set view sizes
+		sizeviewV3.SetPX(Activity.Width,Activity.Height,240,320)
+		sizeviewV3.SetPastScreenSizetoInche(3.333,4.444)
+		sizeviewV3.SetSize_btn(btn_1,40,140,50,80,25)
+		sizeviewV3.SetSize_btn(btn_2,120,90,50,130,25)
+		sizeviewV3.SetSize_btn(btn_3,200,40,50,180,25)
+	#end region
+	Else
+		StartActivity(main_act)
+	End If
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+Sub btn_1_Click
+	config_App.is_first=False
+	StartActivity(main_act)
+	Activity.Finish
+End Sub
